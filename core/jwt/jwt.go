@@ -82,26 +82,36 @@ func (j *Jwt) ParseToken(tokenString string) (*config.Claims, error) {
 			return claims, nil
 		}
 		return nil, TokenInvalid
-
 	}
 	return nil, TokenInvalid
 }
 
 // RefreshToken 更新token
 func (j *Jwt) RefreshToken(tokenString string) (string, error) {
+	// 实例化时间函数
 	jwtgo.TimeFunc = func() time.Time {
 		return time.Unix(0, 0)
 	}
+
+	// 解析token
 	token, err := jwtgo.ParseWithClaims(tokenString, &config.Claims{}, func(token *jwtgo.Token) (interface{}, error) {
 		return []byte(j.config.Key), nil
 	})
 	if err != nil {
 		return "", err
 	}
+
+	// 得到token内容
 	if claims, ok := token.Claims.(*config.Claims); ok && token.Valid {
 		jwtgo.TimeFunc = time.Now
+
+		// 刷新token的时间
 		claims.StandardClaims.ExpiresAt = time.Now().Add(time.Duration(j.config.Expired) * time.Second).Unix()
+
+		// 返回新创建的token
 		return j.CreateToken(*claims)
 	}
+
+	// 解析失败，返回错误
 	return "", TokenInvalid
 }

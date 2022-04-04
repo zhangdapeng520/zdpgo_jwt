@@ -1,4 +1,4 @@
-package zgo_jwt
+package zdpgo_jwt
 
 import (
 	"github.com/zhangdapeng520/zdpgo_jwt/core/config"

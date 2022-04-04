@@ -16,13 +16,18 @@ type Claims interface {
 // https://tools.ietf.org/html/rfc7519#section-4.1
 // See examples for how to use this with your own claim types
 type StandardClaims struct {
-	Audience  string `json:"aud,omitempty"`
-	ExpiresAt int64  `json:"exp,omitempty"`
-	Id        string `json:"jti,omitempty"`
-	IssuedAt  int64  `json:"iat,omitempty"`
-	Issuer    string `json:"iss,omitempty"`
-	NotBefore int64  `json:"nbf,omitempty"`
-	Subject   string `json:"sub,omitempty"`
+	UserId    uint64                 `json:"user_id"`   // 用户ID
+	Username  string                 `json:"username"`  // 用户名称
+	UserType  string                 `json:"user_type"` // 用户类型（username,email,phone）
+	Role      uint                   `json:"role"`      // 用户角色
+	Data      map[string]interface{} `json:"data"`      // 要传递的其他数据
+	Audience  string                 `json:"aud,omitempty"`
+	ExpiresAt int64                  `json:"exp,omitempty"`
+	Id        string                 `json:"jti,omitempty"`
+	IssuedAt  int64                  `json:"iat,omitempty"`
+	Issuer    string                 `json:"iss,omitempty"`
+	NotBefore int64                  `json:"nbf,omitempty"`
+	Subject   string                 `json:"sub,omitempty"`
 }
 
 // Validates time based claims "exp, iat, nbf".

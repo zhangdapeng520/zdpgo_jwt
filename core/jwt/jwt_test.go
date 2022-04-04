@@ -1,8 +1,8 @@
 package jwt
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"github.com/zhangdapeng520/zdpgo_jwtcore/config"
+	"github.com/zhangdapeng520/zdpgo_jwt/core/config"
+	"github.com/zhangdapeng520/zdpgo_jwt/libs/jwtgo"
 	"testing"
 	"time"
 )
@@ -30,7 +30,7 @@ func TestJWT_CreateToken(t *testing.T) {
 		Username: "zhangdapeng",
 		UserType: "username",
 		Role:     1,
-		StandardClaims: jwt.StandardClaims{
+		StandardClaims: jwtgo.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Duration(maxAge) * time.Second).Unix(), // 过期时间，必须设置
 		},
 	})
@@ -50,7 +50,7 @@ func TestJWT_ParseToken(t *testing.T) {
 		Username: "zhangdapeng",
 		UserType: "username",
 		Role:     1,
-		StandardClaims: jwt.StandardClaims{
+		StandardClaims: jwtgo.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Duration(maxAge) * time.Second).Unix(), // 过期时间，必须设置
 		},
 	})
@@ -75,7 +75,7 @@ func TestJWT_RefreshToken(t *testing.T) {
 		Username: "zhangdapeng",
 		UserType: "username",
 		Role:     1,
-		StandardClaims: jwt.StandardClaims{
+		StandardClaims: jwtgo.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Duration(maxAge) * time.Second).Unix(), // 过期时间，必须设置
 		},
 	})

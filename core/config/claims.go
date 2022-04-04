@@ -1,8 +1,6 @@
 package config
 
-import (
-	"github.com/zhangdapeng520/zdpgo_jwt/libs/jwtgo"
-)
+import "github.com/zhangdapeng520/zdpgo_jwt/libs/jwtgo"
 
 type Claims struct {
 	UserId   uint64                 `json:"user_id"`   // 用户ID

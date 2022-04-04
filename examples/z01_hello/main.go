@@ -1,21 +1,3 @@
-# zdpgo_jwt
-使用Golang创建、刷新和校验JWT Token
-
-项目地址：https://github.com/zhangdapeng520/zdpgo_jwt
-
-## 功能清单
-- 创建token
-- 校验token
-- 刷新token
-
-## 版本历史
-- 版本0.1.0 2022年3月9日 基本功能
-- 版本0.1.1 2022年4月4日 代码优化
-
-## 使用示例
-
-### 创建、校验和刷新token
-```go
 package main
 
 import (
@@ -83,4 +65,3 @@ func main() {
 	}
 	fmt.Println("得到刷新token内容：", claims2)
 }
-```
