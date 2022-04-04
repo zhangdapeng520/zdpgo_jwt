@@ -1,8 +1,8 @@
 package zgo_jwt
 
 import (
-	"zgo_jwt/core/config"
-	"zgo_jwt/core/jwt"
+	"github.com/zhangdapeng520/zdpgo_jwt/core/config"
+	"github.com/zhangdapeng520/zdpgo_jwt/core/jwt"
 )
 
 // Jwt Jwt核心对象

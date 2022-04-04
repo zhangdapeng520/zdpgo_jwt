@@ -1,6 +1,6 @@
 package zgo_jwt
 
-import "zgo_jwt/core/config"
+import "github.com/zhangdapeng520/zdpgo_jwt/core/config"
 
 type Generate interface {
 	// CreateToken 创建TOKEN

@@ -2,9 +2,9 @@ package jwt
 
 import (
 	"github.com/dgrijalva/jwt-go"
+	"github.com/zhangdapeng520/zdpgo_jwtcore/config"
 	"testing"
 	"time"
-	"zgo_jwt/core/config"
 )
 
 func prepareJwt() *Jwt {
