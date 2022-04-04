@@ -1,4 +1,4 @@
-package zgo_jwt
+package jwt
 
 import (
 	"github.com/dgrijalva/jwt-go"
