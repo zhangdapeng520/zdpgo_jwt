@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/zhangdapeng520/zdpgo_jwt"
 	"github.com/zhangdapeng520/zdpgo_jwt/core/config"
@@ -17,6 +18,7 @@ func main() {
 		"b": 2.222,
 		"c": true,
 	}
+	jsonData, err := json.Marshal(data)
 
 	maxAge := 60 * 60 * 24
 	token, err := j.CreateToken(config.Claims{
@@ -24,7 +26,7 @@ func main() {
 		Username: "zhangdapeng",
 		UserType: "username",
 		Role:     1,
-		Data:     data,
+		JsonData: string(jsonData),
 		StandardClaims: jwtgo.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Duration(maxAge) * time.Second).Unix(), // 过期时间，必须设置
 		},

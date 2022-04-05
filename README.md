@@ -11,6 +11,7 @@
 ## 版本历史
 - 版本0.1.0 2022年3月9日 基本功能
 - 版本0.1.1 2022年4月4日 代码优化
+- 版本0.1.2 2022年4月5日 支持传递JSON字符串
 
 ## 使用示例
 
@@ -19,6 +20,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/zhangdapeng520/zdpgo_jwt"
 	"github.com/zhangdapeng520/zdpgo_jwt/core/config"
@@ -35,6 +37,7 @@ func main() {
 		"b": 2.222,
 		"c": true,
 	}
+	jsonData, err := json.Marshal(data)
 
 	maxAge := 60 * 60 * 24
 	token, err := j.CreateToken(config.Claims{
@@ -42,7 +45,7 @@ func main() {
 		Username: "zhangdapeng",
 		UserType: "username",
 		Role:     1,
-		Data:     data,
+		JsonData: string(jsonData),
 		StandardClaims: jwtgo.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Duration(maxAge) * time.Second).Unix(), // 过期时间，必须设置
 		},
