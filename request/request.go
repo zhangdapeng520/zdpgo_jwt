@@ -1,7 +1,6 @@
 package request
 
 import (
-	"github.com/dgrijalva/jwt-go"
 	"net/http"
 )
 

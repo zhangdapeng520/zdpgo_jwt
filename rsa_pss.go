@@ -1,7 +1,7 @@
 //go:build go1.4
 // +build go1.4
 
-package jwtgo
+package zdpgo_jwt
 
 import (
 	"crypto"

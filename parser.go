@@ -1,4 +1,4 @@
-package jwtgo
+package zdpgo_jwt
 
 import (
 	"bytes"
