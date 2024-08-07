@@ -1,18 +1,3 @@
-# zdpgo_jwt
-
-Go语言用于JWT Token生成
-
-## 安装
-
-```bash
-go get github.com/zhangdapeng520/zdpgo_jwt
-```
-
-## 用法
-
-### 生成和解析Token
-
-```go
 package main
 
 import (
@@ -73,10 +58,3 @@ func main() {
 	}
 	fmt.Println("解析Token成功：", claims)
 }
-```
-
-## 版本
-
-### v0.1.0
-
-- 基础代码
